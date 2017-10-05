@@ -6,7 +6,7 @@ Simple example of using docker with php and apache2
 
 ```docker pull faelp22/lap```
 
-Change the path "/home/isael/site" for you local paht
+Change the path "/home/isael/site" for you local path
 
 You can also change the name "servidorweb" and port "8080"
 
