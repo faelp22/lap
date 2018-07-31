@@ -19,6 +19,13 @@ put your files here, do not forget to give the necessary permissions
 └── index.php permission -rw-r--r-- == 644
 ```
 
+A example to run docker-compose to up a environment: WordPress, PHP 7, MySQL and Apache2.
+
+```
+docker-compose up -d
+```
+See the file docker-compose.yml with a example setting. 
+
 # In this image you have:
 
 - Ubuntu Server 16.04;
