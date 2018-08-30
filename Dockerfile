@@ -1,8 +1,8 @@
 # Lap
 #
-# VERSION               0.2.1
+# VERSION               0.3
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Isael Sousa <faelp22@gmail.com>
 
 #timezone

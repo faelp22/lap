@@ -18,7 +18,7 @@ services:
     links: 
       - db
   web:
-    image: faelp22/lap:0.2.1
+    image: faelp22/lap:0.3
     command:  bash -c "chmod -R 777 /var/www/html"
     ports:
       - 8000:80
