@@ -18,8 +18,8 @@ services:
     links: 
       - db
   web:
-    image: faelp22/lap
-    # command:  bash -c "chmod -R 777 /var/www/html && /usr/sbin/apache2ctl -D FOREGROUND"
+    image: faelp22/lap:0.2.1
+    command:  bash -c "chmod -R 777 /var/www/html"
     ports:
       - 8000:80
     depends_on: 

@@ -1,9 +1,13 @@
 # Lap
 #
-# VERSION               0.2
+# VERSION               0.2.1
 
 FROM ubuntu:16.04
 MAINTAINER Isael Sousa <faelp22@gmail.com>
+
+#timezone
+ENV TZ=America/Fortaleza
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # install apache2 and php
 RUN apt-get update
@@ -15,12 +19,12 @@ RUN adduser --uid 1000 --gecos 'My Apache User' --disabled-password myuser
 RUN chmod -R 777 /var/www/html
 RUN chown -R 1000:www-data /var/www/html
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker-entrypoint.sh /root/docker-entrypoint.sh
+RUN chmod +x /root/docker-entrypoint.sh
 
 # volumes
 VOLUME ["/var/www/html"]
 
 EXPOSE 80
 
-#ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+ENTRYPOINT ["/root/docker-entrypoint.sh"]
