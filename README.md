@@ -26,11 +26,16 @@ docker-compose up -d
 ```
 See the file docker-compose.yml with a example setting. 
 
-# In this image you have:
+# In this image you have on tag 0.3:
+- Ubuntu Server 18.04.x;
+- PHP 7.2.x;
 
-- Ubuntu Server 16.04;
-- PHP 7.0.15-0ubuntu0.16.04.4;
-- Apache / 2.4.18 (Ubuntu);
+# In this image you have on tag 0.2.1:
+- Ubuntu Server 16.04.x;
+- PHP 7.0.x;
+
+# In this image you have:
+- Apache / 2.4.x;
 - php-xml;
 - php-mysql;
 - php-pgsql;
@@ -41,6 +46,6 @@ for more information check the file "Dockerfile"
 
 # To access the container:
 
-```docker exec -it bash webserver```
+```docker exec -it webserver /bin/bash```
 
 Have a good time!
