@@ -1,30 +1,45 @@
-version: '3'
+version: '3.1'
 services:
-  db:
-    image: mysql/mysql-server:5.7
-    ports: 
-      - 3306:3306
-    environment:
-        MYSQL_ROOT_PASSWORD: 123456
-        MYSQL_ROOT_HOST: "%"
-    volumes: 
-      - ./mysql:/var/lib/mysql
-  adminer:
-    image: adminer
-    ports:
-      - 8080:8080
-    depends_on: 
-      - db
-    links: 
-      - db
-  web:
-    image: faelp22/lap:0.3
-    command:  bash -c "chmod -R 777 /var/www/html"
-    ports:
-      - 8000:80
-    depends_on: 
-      - db
-    links: 
-      - db
-    volumes: 
-      - ./www:/var/www/html
+    # mysql:
+    #     image: mysql/mysql-server:5.7
+    #     restart: always
+    #     ports: 
+    #         - 3306:3306
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: 123456
+    #         MYSQL_ROOT_HOST: "%"
+    #     volumes: 
+    #         - ./mysql:/var/lib/mysql
+    # postgre:
+    #     image: postgres
+    #     restart: always
+    #     environment:
+    #         POSTGRES_PASSWORD: 123456
+    #     volumes: 
+    #         - ./postgres:/var/lib/postgresql/data
+    # adminer:
+    #     image: adminer
+    #     restart: always
+    #     ports:
+    #         - 8080:8080
+    #     depends_on: 
+    #         - mysql
+    #         - postgre
+    #     links: 
+    #         - mysql
+    #         - postgre
+    web:
+        container_name: php_web_server
+        image: faelp22/lap:0.4
+        # restart: always
+        command:  bash -c "chmod -R 777 /var/www/html"
+        ports:
+            - 8000:80
+        # depends_on: 
+        #     - mysql
+        #     - postgre
+        # links: 
+        #     - mysql
+        #     - postgre
+        volumes: 
+            - ./www:/var/www/html
